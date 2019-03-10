@@ -10,7 +10,7 @@ public class ArrayStack<T> implements Stack<T> {
         arr = (T[]) tempArr;
     }
     
-    
+    // this will grow the array with twice the size
     private void growArray() {
         Object[] tempArr = new Object[arr.length * 2];
         T[] nameArr = (T[]) tempArr;
@@ -20,6 +20,7 @@ public class ArrayStack<T> implements Stack<T> {
         arr = nameArr;
     }
     
+    // add an item with of T type to the array
     @Override
     public void push(T item) {
         if (head == arr.length - 1) {
@@ -28,7 +29,7 @@ public class ArrayStack<T> implements Stack<T> {
         arr[++head] = item;
     }
     
-    
+    // we want to take a look at what Object T is being stored at the top or head of the stack
     @Override
     public T peek() {
         if (empty()) {
@@ -38,7 +39,7 @@ public class ArrayStack<T> implements Stack<T> {
     }
     
     
-    
+    // we want to take out what is on top of the stack and return
     @Override
     public T pop() {
         if (empty()) {
@@ -48,7 +49,7 @@ public class ArrayStack<T> implements Stack<T> {
     }
     
     
-    
+    // this will check whether the array is filled/not filled, empty
     @Override
     public boolean empty() {
         return head == -1;

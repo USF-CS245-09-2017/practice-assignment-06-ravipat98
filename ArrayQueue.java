@@ -12,6 +12,7 @@ public class ArrayQueue<T> implements Queue<T> {
         arr = (T[]) tempArr;
     }
     
+    // this method will add Object T to the end of the queue
     @Override
     public void enqueue(T item) {
         if (tail == arr.length) {
@@ -20,6 +21,8 @@ public class ArrayQueue<T> implements Queue<T> {
         arr[tail++] = item;
     }
     
+   // get head of queue
+    // return the head of the queue
     @Override
     public T dequeue() {
         if (empty()) {
@@ -28,11 +31,13 @@ public class ArrayQueue<T> implements Queue<T> {
         return arr[head++];
     }
     
+    // checks to see if array is taken (filled)
     @Override
     public boolean empty() {
         return head == tail;
     }
     
+    // we want to increase the size of array by using amortization
     private void growArray() {
         Object[] tempArr = new Object[arr.length * 2];
         T[] nameArr = (T[]) tempArr;
